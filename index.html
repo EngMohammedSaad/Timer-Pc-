@@ -10,7 +10,6 @@
     
     <style>
         :root {
-            /* Default Theme: Midnight Blue */
             --primary: #3b82f6; 
             --bg-site: #0f172a;
             --card-bg: rgba(30, 41, 59, 0.7);
@@ -34,8 +33,6 @@
             padding: 20px;
             background-image: radial-gradient(circle at 50% 0%, rgba(var(--primary-rgb), 0.15) 0%, transparent 50%);
         }
-
-        /* Top Bar */
         .top-bar {
             position: absolute;
             top: 20px;
@@ -57,8 +54,6 @@
             backdrop-filter: blur(5px);
         }
         .icon-btn:hover { background: var(--primary); transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); border-color: transparent;}
-
-        /* App Layout */
         .dashboard {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -67,8 +62,6 @@
             width: 100%;
             align-items: start;
         }
-
-        /* Cards Shared */
         .glass-card {
             background: var(--card-bg);
             padding: 40px;
@@ -78,10 +71,7 @@
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
             transition: 0.4s;
         }
-
-        /* ----- TIMER SECTION ----- */
         .timer-card { text-align: center; display: flex; flex-direction: column; gap: 20px; }
-        
         .mode-tabs {
             display: flex; background: rgba(0,0,0,0.3); border-radius: 15px; padding: 5px;
         }
@@ -90,14 +80,11 @@
             font-weight: 600; border-radius: 10px; cursor: pointer; transition: 0.3s; font-family: inherit; font-size: 1.1rem;
         }
         .tab-btn.active { background: var(--primary); color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
-
         .time-display-wrapper { position: relative; margin: 20px 0; }
         .timer-display {
             font-size: 6.5rem; font-weight: 800; font-variant-numeric: tabular-nums;
             letter-spacing: -2px; line-height: 1; text-shadow: 0 0 30px rgba(255,255,255,0.1);
         }
-
-        /* Time Setup Inputs */
         .time-setup {
             display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 20px;
             background: rgba(0,0,0,0.2); padding: 15px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);
@@ -116,12 +103,8 @@
             border-radius: 12px; cursor: pointer; font-weight: 600; transition: 0.3s; width: 100%;
         }
         .apply-time-btn:hover { background: var(--primary); }
-
-        /* Progress Bar */
         .progress-track { width: 100%; height: 8px; background: rgba(0,0,0,0.3); border-radius: 10px; overflow: hidden; }
         .progress-fill { height: 100%; width: var(--progress-width); background: var(--primary); border-radius: 10px; transition: width 1s linear; }
-
-        /* Controls */
         .main-controls { display: flex; gap: 15px; margin-top: 10px; }
         .btn-large {
             padding: 18px; border-radius: 15px; font-size: 1.2rem; font-weight: 700;
@@ -131,14 +114,9 @@
         .btn-start:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255,255,255,0.15); }
         .btn-reset { background: rgba(255,255,255,0.05); color: var(--text-main); flex: 1; border: 1px solid rgba(255,255,255,0.1); }
         .btn-reset:hover { background: rgba(255,255,255,0.1); }
-
-        /* ----- SETTINGS & TASKS SECTION ----- */
         .side-panel { display: flex; flex-direction: column; gap: 20px; }
-        
-        /* Themes Setup */
         .settings-card { padding: 25px; }
         .section-title { font-size: 1rem; font-weight: 700; color: var(--text-dim); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
-        
         .theme-presets { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
         .theme-circle {
             width: 35px; height: 35px; border-radius: 50%; cursor: pointer; border: 2px solid rgba(255,255,255,0.1);
@@ -146,17 +124,14 @@
         }
         .theme-circle:hover { transform: scale(1.1); }
         .theme-circle.active { border-color: #fff; transform: scale(1.1); box-shadow: 0 0 15px rgba(255,255,255,0.3); }
-        
         .custom-colors { display: flex; gap: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); }
         .color-picker { display: flex; flex-direction: column; gap: 5px; align-items: center; }
         .color-picker span { font-size: 0.7rem; color: var(--text-dim); }
         .color-input { width: 30px; height: 30px; border: none; border-radius: 5px; cursor: pointer; background: transparent; }
 
-        /* Tasks Setup */
         .tasks-card { flex-grow: 1; display: flex; flex-direction: column; }
         .tasks-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
         .task-stats { font-size: 0.85rem; color: var(--primary); font-weight: 600; background: rgba(var(--primary-rgb), 0.1); padding: 5px 12px; border-radius: 20px; }
-        
         .task-input-wrapper { display: flex; gap: 10px; margin-bottom: 20px; }
         .task-input {
             flex: 1; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); color: #fff;
@@ -168,12 +143,10 @@
             font-size: 1.2rem; cursor: pointer; transition: 0.3s; display: flex; justify-content: center; align-items: center;
         }
         .add-btn:hover { background: #fff; color: var(--primary); }
-
         .tasks-list { list-style: none; overflow-y: auto; max-height: 250px; display: flex; flex-direction: column; gap: 10px; padding-right: 5px; }
         .tasks-list::-webkit-scrollbar { width: 5px; }
         .tasks-list::-webkit-scrollbar-track { background: transparent; }
         .tasks-list::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
-
         .task-item {
             background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; display: flex;
             justify-content: space-between; align-items: center; border: 1px solid transparent; transition: 0.3s; animation: fadeIn 0.3s ease;
@@ -181,7 +154,6 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .task-item:hover { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); }
         .task-content { display: flex; align-items: center; gap: 15px; cursor: pointer; flex: 1; }
-        
         .checkbox {
             width: 22px; height: 22px; border: 2px solid var(--text-dim); border-radius: 6px;
             display: flex; justify-content: center; align-items: center; transition: 0.3s;
@@ -189,15 +161,12 @@
         .task-item.done .checkbox { background: var(--primary); border-color: var(--primary); }
         .task-item.done .checkbox::after { content: '✓'; color: white; font-size: 14px; font-weight: bold; }
         .task-item.done .task-text { text-decoration: line-through; color: var(--text-dim); }
-        .task-text { font-size: 1rem; transition: 0.3s; word-break: break-word; }
-        
+        .task-text { font-size: 1rem; transition: 0.3s; word-break: break-word; } 
         .delete-btn { background: transparent; color: #ef4444; border: none; font-size: 1.1rem; cursor: pointer; opacity: 0.5; transition: 0.3s; padding: 5px; }
         .delete-btn:hover { opacity: 1; transform: scale(1.1); }
-
         .tasks-footer { display: flex; justify-content: space-between; margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,0.05); }
         .text-btn { background: transparent; border: none; color: var(--text-dim); cursor: pointer; font-size: 0.85rem; transition: 0.3s; font-family: inherit;}
         .text-btn:hover { color: #fff; text-decoration: underline; }
-
         @media (max-width: 900px) {
             .dashboard { grid-template-columns: 1fr; }
             .timer-display { font-size: 5rem; }
@@ -305,7 +274,6 @@
     </div>
 
     <script>
-        // --- Translations ---
         let currentLang = 'en';
         const i18n = {
             en: {
@@ -325,18 +293,14 @@
                 btn_clear_done: "مسح المكتمل", btn_clear_all: "مسح الكل"
             }
         };
-
-        // --- Timer State ---
         let modes = {
             focus: { h: 0, m: 25, s: 0, totalSeconds: 1500 },
             break: { h: 0, m: 5, s: 0, totalSeconds: 300 }
         };
-        let currentMode = 'focus'; // 'focus' or 'break'
+        let currentMode = 'focus'; 
         let timeLeft = modes[currentMode].totalSeconds;
         let timerId = null;
         let isRunning = false;
-
-        // --- Themes ---
         const themes = [
             { id: 't1', name: 'Midnight', primary: '#3b82f6', bg: '#0f172a', card: 'rgba(30, 41, 59, 0.7)' },
             { id: 't2', name: 'Sunset', primary: '#f43f5e', bg: '#2e1022', card: 'rgba(76, 29, 49, 0.6)' },
@@ -361,11 +325,7 @@
             { id: 't21', name: 'Magma', primary: '#ff4d00', bg: '#1a0505', card: 'rgba(45, 10, 10, 0.7)' },
             { id: 't22', name: 'Neon Leaf', primary: '#a3e635', bg: '#022c22', card: 'rgba(6, 78, 59, 0.6)'}
         ];
-
-        // --- Tasks State ---
         let tasks = JSON.parse(localStorage.getItem('eliteTasks')) || [];
-
-        // --- Initialization ---
         window.onload = () => {
             renderThemes();
             applyTheme('t1');
@@ -373,75 +333,55 @@
             updateDisplay();
             renderTasks();
         };
-
-        // --- Core Timer Logic ---
         function switchMode(mode) {
-            if(isRunning) toggleTimer(); // Pause if running
+            if(isRunning) toggleTimer(); 
             currentMode = mode;
             timeLeft = modes[mode].totalSeconds;
-            
-            // Update UI
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.getElementById(`tab-${mode}`).classList.add('active');
-            
             updateInputsFromMode();
             updateDisplay();
             updateActionBtnUI();
         }
 
         function applyCustomTime() {
-            if(isRunning) return; // Don't change while running
-            
+            if(isRunning) return; 
             let h = parseInt(document.getElementById('inp-h').value) || 0;
             let m = parseInt(document.getElementById('inp-m').value) || 0;
             let s = parseInt(document.getElementById('inp-s').value) || 0;
-            
-            // Basic validation
             if(m > 59) { h += Math.floor(m/60); m = m%60; }
             if(s > 59) { m += Math.floor(s/60); s = s%60; }
-            
             modes[currentMode] = { h, m, s, totalSeconds: (h*3600) + (m*60) + s };
             timeLeft = modes[currentMode].totalSeconds;
-            
-            // Fix inputs to show validated numbers
             updateInputsFromMode();
             updateDisplay();
-            
-            // Quick visual feedback
             const btn = document.querySelector('.apply-time-btn');
             const originalText = btn.innerText;
             btn.innerText = "✓";
             setTimeout(() => btn.innerText = originalText, 1000);
         }
-
         function updateInputsFromMode() {
             document.getElementById('inp-h').value = modes[currentMode].h;
             document.getElementById('inp-m').value = modes[currentMode].m;
             document.getElementById('inp-s').value = modes[currentMode].s;
         }
-
         function formatTimeDisplay(totalSecs) {
             const h = Math.floor(totalSecs / 3600);
             const m = Math.floor((totalSecs % 3600) / 60);
             const s = totalSecs % 60;
-            
             if(h > 0) return `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
             return `${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
         }
-
         function updateDisplay() {
             const displayStr = formatTimeDisplay(timeLeft);
             document.getElementById('display-time').innerText = displayStr;
             document.title = `${displayStr} - ${currentMode === 'focus' ? 'Focus' : 'Break'}`;
-
             const total = modes[currentMode].totalSeconds;
             const progress = total > 0 ? ((total - timeLeft) / total) * 100 : 0;
             document.documentElement.style.setProperty('--progress-width', `${progress}%`);
         }
-
         function toggleTimer() {
             if (modes[currentMode].totalSeconds === 0) return alert(currentLang === 'ar' ? "يرجى تحديد الوقت أولاً!" : "Please set the time first!");
-
             if (isRunning) {
                 clearInterval(timerId);
             } else {
@@ -460,7 +400,6 @@
             isRunning = !isRunning;
             updateActionBtnUI();
         }
-
         function resetTimer() {
             clearInterval(timerId);
             isRunning = false;
@@ -468,35 +407,26 @@
             updateDisplay();
             updateActionBtnUI();
         }
-
         function updateActionBtnUI() {
             const btn = document.getElementById('main-action');
             const actionText = isRunning ? i18n[currentLang].btn_pause : i18n[currentLang].btn_start;
             const icon = isRunning ? 'fa-pause' : 'fa-play';
             const modeText = currentLang === 'ar' ? (currentMode==='focus'?'التركيز':'البريك') : (currentMode==='focus'?'Focus':'Break');
-            
             btn.innerHTML = `<i class="fa-solid ${icon}"></i> <span>${actionText} ${modeText}</span>`;
         }
-
-
-        // --- Tasks Logic ---
         function saveTasks() {
             localStorage.setItem('eliteTasks', JSON.stringify(tasks));
             renderTasks();
         }
-
         function handleTaskEnter(e) { if(e.key === 'Enter') addTask(); }
-
         function addTask() {
             const input = document.getElementById('task-input');
             const text = input.value.trim();
             if(!text) return;
-
             tasks.unshift({ id: Date.now(), text, completed: false });
             input.value = '';
             saveTasks();
         }
-
         function toggleTask(id) {
             const task = tasks.find(t => t.id === id);
             if(task) {
@@ -504,30 +434,24 @@
                 saveTasks();
             }
         }
-
         function deleteTask(id) {
             tasks = tasks.filter(t => t.id !== id);
             saveTasks();
         }
-
         function clearCompletedTasks() {
             tasks = tasks.filter(t => !t.completed);
             saveTasks();
         }
-
         function clearAllTasks() {
             if(confirm(currentLang === 'ar' ? "هل أنت متأكد من مسح كل المهام؟" : "Are you sure you want to clear all tasks?")) {
                 tasks = [];
                 saveTasks();
             }
         }
-
         function renderTasks() {
             const list = document.getElementById('task-list');
             list.innerHTML = '';
-            
             let completedCount = 0;
-            
             if(tasks.length === 0) {
                 list.innerHTML = `<li style="text-align:center; color: var(--text-dim); margin-top: 20px; font-size: 0.9rem;">${currentLang==='ar'?'لا توجد مهام حالياً.':'No tasks yet.'}</li>`;
             } else {
@@ -545,12 +469,8 @@
                     list.appendChild(li);
                 });
             }
-
             document.getElementById('task-stats').innerText = `${completedCount}/${tasks.length}`;
         }
-
-
-        // --- Themes Logic ---
         function renderThemes() {
             const container = document.getElementById('theme-buttons');
             themes.forEach(t => {
@@ -562,55 +482,37 @@
                 container.appendChild(btn);
             });
         }
-
         function applyTheme(id) {
             const theme = themes.find(t => t.id === id);
             if(!theme) return;
-
             document.documentElement.style.setProperty('--primary', theme.primary);
             document.documentElement.style.setProperty('--bg-site', theme.bg);
             document.documentElement.style.setProperty('--card-bg', theme.card);
-            
-            // Set rgb version for radial gradient background
             const hexToRgb = hex => hex.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, (m, r, g, b) => '#' + r + r + g + g + b + b).substring(1).match(/.{2}/g).map(x => parseInt(x, 16)).join(',');
             document.documentElement.style.setProperty('--primary-rgb', hexToRgb(theme.primary));
-
-            // Update inputs
             document.getElementById('color-accent').value = theme.primary;
             document.getElementById('color-bg').value = theme.bg;
-
-            // Update UI state
             document.querySelectorAll('.theme-circle').forEach((el, index) => {
                 el.classList.toggle('active', themes[index].id === id);
             });
         }
-
         function setCustomColors() {
             const accent = document.getElementById('color-accent').value;
             const bg = document.getElementById('color-bg').value;
-            
             document.documentElement.style.setProperty('--primary', accent);
             document.documentElement.style.setProperty('--bg-site', bg);
-            
             const hexToRgb = hex => hex.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, (m, r, g, b) => '#' + r + r + g + g + b + b).substring(1).match(/.{2}/g).map(x => parseInt(x, 16)).join(',');
             document.documentElement.style.setProperty('--primary-rgb', hexToRgb(accent));
-            
             document.querySelectorAll('.theme-circle').forEach(el => el.classList.remove('active'));
         }
-
-
-        // --- Utilities ---
         function toggleLanguage() {
             currentLang = currentLang === 'en' ? 'ar' : 'en';
             document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-            
             document.querySelectorAll('[data-i18n]').forEach(el => el.innerText = i18n[currentLang][el.getAttribute('data-i18n')]);
             document.querySelectorAll('[data-i18n-ph]').forEach(el => el.placeholder = i18n[currentLang][el.getAttribute('data-i18n-ph')]);
-            
             updateActionBtnUI();
-            renderTasks(); // Re-render to update empty state text
+            renderTasks(); 
         }
-
         function toggleFullscreen() {
             if (!document.fullscreenElement) {
                 document.documentElement.requestFullscreen().catch(err => console.log(err));
